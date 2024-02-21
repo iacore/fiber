@@ -32,7 +32,7 @@ func New(config ...Config) fiber.Handler {
 	}
 
 	// Check if format contains latency
-	cfg.enableLatency = strings.Contains(cfg.Format, "${"+TagLatency+"}")
+	cfg.EnableLatency = strings.Contains(cfg.Format, "${"+TagLatency+"}")
 
 	var timestamp atomic.Value
 	// Create correct timeformat
@@ -111,7 +111,7 @@ func New(config ...Config) fiber.Handler {
 		defer dataPool.Put(data)
 
 		// Set latency start time
-		if cfg.enableLatency {
+		if cfg.EnableLatency {
 			data.Start = time.Now()
 		}
 
@@ -127,7 +127,7 @@ func New(config ...Config) fiber.Handler {
 		}
 
 		// Set latency stop time
-		if cfg.enableLatency {
+		if cfg.EnableLatency {
 			data.Stop = time.Now()
 		}
 

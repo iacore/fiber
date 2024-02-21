@@ -56,8 +56,10 @@ type Config struct {
 	// Default: false
 	DisableColors bool
 
+	EnableLatency    bool
+
 	enableColors     bool
-	enableLatency    bool
+	
 	timeZoneLocation *time.Location
 }
 
